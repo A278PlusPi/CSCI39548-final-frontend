@@ -10,6 +10,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+
 import NewCampusView from '../views/NewCampusView';
 import { addCampusThunk } from '../../store/thunks';
 
@@ -46,7 +47,7 @@ class NewCampusContainer extends Component {
     };
     
     // Add new campus in back-end database
-    let newCampus = await this.props.addCampus(campus); //check this in backend
+    let newCampus = await this.props.addCampus(campus); 
 
     // Update state, and trigger redirect to show the new campus
     this.setState({

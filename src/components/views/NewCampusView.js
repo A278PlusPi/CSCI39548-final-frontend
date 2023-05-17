@@ -52,22 +52,31 @@ const NewCampusView = (props) => {
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
-            <input type="text" name="name" onChange ={(e) => handleChange(e)} />
+            <input type="text" 
+            name="name" 
+            onChange ={(e) => handleChange(e)}
+            placeholder='Hunter College'
+             />
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Address: </label>
-            <input type="text" name="address" onChange={(e) => handleChange(e)} />
+            <input
+             type="text" 
+             name="address" 
+             onChange={(e) => handleChange(e)}
+             placeholder='1234 main st'
+              />
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-            <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
+            <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} placeholder='image12.jpg'/>
             <br/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-            <input type="text" description="description" onChange={(e) => handleChange(e)} />
+            <input type="text" description="description" onChange={(e) => handleChange(e)} placeholder="built in 1986.." />
             <br/>
             <br/>
 
