@@ -1,5 +1,5 @@
 /*==================================================
-NewStudentContainer.js
+NewCampusContainer.js
 
 The Container component is responsible for stateful logic and data fetching, and
 passes data (if any) as props to the corresponding View component.
@@ -21,7 +21,7 @@ class NewCampusContainer extends Component {
       name: "", 
       address: "", 
       imageUrl: "", 
-      description: "", //add image url
+      description: "", 
       redirect: false, 
       redirectId: null
     };
@@ -97,3 +97,5 @@ const mapDispatch = (dispatch) => {
 // NewStudentContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
 export default connect(null, mapDispatch)(NewCampusContainer);
+
+
