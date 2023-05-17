@@ -50,9 +50,6 @@ class NewStudentContainer extends Component {
     this.setState({
       firstname: "", 
       lastname: "", 
-      email: "",
-      imageUrl: "",
-      gpa: null,
       campusId: null, 
       redirect: true, 
       redirectId: newStudent.id
