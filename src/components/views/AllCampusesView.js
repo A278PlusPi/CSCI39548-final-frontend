@@ -6,9 +6,10 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { deleteCampus } from "../../store/actions/actionCreators";
 
 const AllCampusesView = (props) => {
-  const{ deleteCampus} = props; 
+  const {deleteCampus} = props;
   // If there is no campus, display a message.
   if (!props.allCampuses.length) {
      return (
