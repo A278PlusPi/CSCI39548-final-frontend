@@ -13,22 +13,14 @@ class EditCampusContainer extends Component {
       name: "", 
       imageUrl: "", 
       address: "", 
-      description: "",
+      description: null,
+      id: null,
       redirect: false, 
       redirectId: null
     };
   }
 
-  componentDidMount(){
-    this.setState({
-        name:this.props.campus.name,
-        imageUrl:this.props.campus.imageUrl,
-        addess:this.props.campus.address,
-        description:this.props.campus.discription,
-        redirect: false, 
-        redirectId: null
-    })
-  }
+
   
   // Capture input data when it is entered
   handleChange = event => {
@@ -41,25 +33,27 @@ class EditCampusContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
 
-    let editCampus = {
+    let changeCampus = {
         name: this.state.name,
         imageUrl: this.state.imageUrl,
         address: this.state.address,
-        description: this.state.description
-    };
-    
-    await this.props.editCampus(editCampus)
+        description: this.state.description,
+        id: this.props.campus.id
+      };
+    await this.props.editCampus(changeCampus)
 
     // Update state, and trigger redirect to show the new student
     this.setState({
       name: "", 
       imageUrl: "", 
       address: null, 
-      discription: null, 
-      redirect:true
+      description: null, 
+      redirect:true,
+      redirectId:this.props.campus.id
+      
     });
   }
-
+  
   // Unmount when the component is being removed from the DOM:
   componentWillUnmount() {
       this.setState({redirect: false, redirectId: null});
@@ -69,13 +63,14 @@ class EditCampusContainer extends Component {
   render() {
     // Redirect to new student's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/student/${this.state.redirectId}`}/>)
+      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
     }
 
     // Display the input form via the corresponding View component
     return (
       <div>
         <Header />
+        
         <EditCampusView 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}    
