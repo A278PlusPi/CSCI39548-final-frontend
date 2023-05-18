@@ -10,9 +10,9 @@ import {
   AllCampusesContainer,
   AllStudentsContainer,
   NewStudentContainer,
-  //NewCampusContainer,
   EditCampusContainer,
-  EditStudentContainer
+  EditStudentContainer,
+  NewCampusContainer
 } from './components/containers';
 
 // if you create separate components for adding/editing 
@@ -29,6 +29,7 @@ const App = () => {
         <Route exact path="/students" component={AllStudentsContainer} />
         <Route exact path="/newstudent" component={NewStudentContainer} />
         
+        <Route exact path="/newcampus" component={NewCampusContainer} />
         <Route exact path="/student/:id" component={StudentContainer} />
         <Route exact path="/editcampus/*" component={EditCampusContainer} />
         <Route exact path="/editstudent/*" component={EditStudentContainer} />
