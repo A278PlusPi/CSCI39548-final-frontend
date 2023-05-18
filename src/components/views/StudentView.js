@@ -10,12 +10,13 @@ const StudentView = (props) => {
 
   // Render a single Student view 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
       <h1>{student.firstname + " " + student.lastname}</h1>
       <p>{student.campus.name}</p>
       <p>{student.email}</p>
       <p>{student.gpa}</p>
       <Link to={`/editstudent/${student.id}`}><button>Edit</button></Link>
+      <img src={student.imageUrl} alt="Student Pic" style={{ width: '500px', height: 'auto' }}/>
     </div>
   );
 
