@@ -15,6 +15,7 @@ class EditStudentContainer extends Component {
       email: "", 
       gpa: 0.0, 
       campusId: null,
+      imageUrl: "",
       redirect: false, 
       redirectId: null
     };
@@ -38,7 +39,8 @@ class EditStudentContainer extends Component {
         email: this.state.email, 
         gpa: this.state.gpa, 
         campusId: this.props.student.campusId,
-        id: this.props.student.campusId
+        id: this.props.student.campusId,
+        imageUrl: this.props.student.imageUrl
       };
 
     await this.props.editStudent(changeStudent)
@@ -49,6 +51,7 @@ class EditStudentContainer extends Component {
         lastname:"",
         email: "", 
         gpa: 0.0, 
+        imageUrl: "",
         redirect: true, 
         redirectId: this.props.student.campusId
 
@@ -63,6 +66,7 @@ class EditStudentContainer extends Component {
         email: this.props.student.email, 
         gpa: this.props.student.gpa, 
         campusId: this.props.student.campusId,
+        imageUrl: this.props.student.imageUrl,
         redirect: false, 
         redirectId: null
     })
@@ -88,7 +92,7 @@ class EditStudentContainer extends Component {
         <EditStudentView 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}    
-          student={this.props.student} 
+          student={this.props.student}
           editStudent={this.props.editStudent}
           fetchStudent={this.props.fetchStudent}
         />
