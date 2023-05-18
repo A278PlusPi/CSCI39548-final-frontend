@@ -2,19 +2,19 @@ import Header from './Header';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { EditCampusView } from '../views';
-import { editCampusThunk, fetchCampusThunk } from '../../store/thunks';
+import { EditStudentView } from '../views';
+import { editStudentThunk, fetchStudentThunk } from '../../store/thunks';
 
-class EditCampusContainer extends Component {
+class EditStudentContainer extends Component {
   // Initialize state
   constructor(props){
     super(props);
     this.state = {
-      name: "", 
-      imageUrl: "", 
-      address: "", 
-      description: null,
-      id: null,
+      firstname: "", 
+      lastname:"",
+      email: "", 
+      gpa: 0.0, 
+      campusId: null,
       redirect: false, 
       redirectId: null
     };
@@ -32,37 +32,39 @@ class EditCampusContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
 
-    let changeCampus = {
-        name: this.state.name,
-        imageUrl: this.state.imageUrl,
-        address: this.state.address,
-        description: this.state.description,
-        id: this.props.campus.id
+    let changeStudent = {
+        firstname: this.state.firstname, 
+        lastname:this.state.lastname,
+        email: this.state.email, 
+        gpa: this.state.gpa, 
+        campusId: this.props.student.campusId,
+        id: this.props.student.campusId
       };
-    await this.props.editCampus(changeCampus)
+
+    await this.props.editStudent(changeStudent)
 
     // Update state, and trigger redirect to show the new student
     this.setState({
-      name: "", 
-      imageUrl: "", 
-      address: null, 
-      description: null, 
-      redirect:true,
-      redirectId:this.props.campus.id
+        firstname: "", 
+        lastname:"",
+        email: "", 
+        gpa: 0.0, 
+        redirect: true, 
+        redirectId: this.props.student.campusId
 
     });
   }
 
   componentDidMount(){
-    this.props.fetchCampus(this.props.campus.id)
+    this.props.fetchStudent(window.location.pathname.slice(-1))
     this.setState({
-        name:this.props.campus.name,
-        imageUrl:this.props.campus.imageUrl,
-        address:this.props.campus.address,
-        description:this.props.campus.description,
-        redirect:false,
-        redirectId:null,
-        id:this.props.campus.id
+        firstname: this.props.student.firstname, 
+        lastname:this.props.student.lastname,
+        email: this.props.student.email, 
+        gpa: this.props.student.gpa, 
+        campusId: this.props.student.campusId,
+        redirect: false, 
+        redirectId: null
     })
   }
 
@@ -75,7 +77,7 @@ class EditCampusContainer extends Component {
   render() {
     // Redirect to new student's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/campus/${this.state.redirectId}`}/>)
+      return (<Redirect to={`/student/${this.state.redirectId}`}/>)
     }
 
     // Display the input form via the corresponding View component
@@ -83,12 +85,12 @@ class EditCampusContainer extends Component {
       <div>
         <Header />
 
-        <EditCampusView 
+        <EditStudentView 
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}    
-          campus={this.props.campus} 
-          editCampus={this.props.editCampus}
-          fetchCampus={this.props.fetchCampus}
+          student={this.props.student} 
+          editStudent={this.props.editStudent}
+          fetchStudent={this.props.fetchStudent}
         />
       </div>          
     );
@@ -100,18 +102,18 @@ class EditCampusContainer extends Component {
 // The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
 const mapState = (state) => {
     return {
-        campus: state.campus
+        student: state.student
     }
 }
 
 const mapDispatch = (dispatch) => {
     return({
-        editCampus: (campus) => dispatch(editCampusThunk(campus)),
-        fetchCampus: (campus) => dispatch(fetchCampusThunk(campus))
+        editStudent: (student) => dispatch(editStudentThunk(student)),
+        fetchStudent: (student) => dispatch(fetchStudentThunk(student))
     })
 }
 
 // Export store-connected container by default
 // NewStudentContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
-export default connect(mapState, mapDispatch)(EditCampusContainer); 
+export default connect(mapState, mapDispatch)(EditStudentContainer); 
