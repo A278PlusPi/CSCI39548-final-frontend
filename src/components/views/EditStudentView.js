@@ -69,7 +69,7 @@ const EditStudentView = (props) => {
             <br/>
 
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
-            <input type="text" name="campusId" onChange ={(e) => handleChange(e)} defaultValue={props.student.campusId}required/>
+            <input type="text" name="campusId" onChange ={(e) => handleChange(e)} defaultValue={props.student.campusId}/>
             <br/>
             <br/>
 
