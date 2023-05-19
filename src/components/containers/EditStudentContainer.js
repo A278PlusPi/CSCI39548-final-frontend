@@ -39,7 +39,7 @@ class EditStudentContainer extends Component {
         email: this.state.email, 
         gpa: this.state.gpa, 
         campusId: this.props.student.campusId,
-        id: this.props.student.campusId,
+        // id: this.props.student.campusId,
         imageUrl: this.props.student.imageUrl
       };
 

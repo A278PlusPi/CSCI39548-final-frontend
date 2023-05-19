@@ -64,16 +64,16 @@ const EditStudentView = (props) => {
 
 
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
-            <input type="number" min= "0.0" max= "4.0" name="gpa" onChange ={(e) => handleChange(e)} defaultValue={props.student.gpa}required/>
+            <input type="number" min= "0.0" max= "4.0" step="0.001" name="gpa" onChange ={(e) => handleChange(e)} defaultValue={props.student.gpa}/>
             <br/>
             <br/>
 
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
-            <input type="text" name="campusId" onChange ={(e) => handleChange(e)} defaultValue={props.student.campusId}required/>
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Campus ID: </label>
+            <input type="number" min= "1" name="campusId" onChange ={(e) => handleChange(e)} defaultValue={props.student.campusId}required/>
             <br/>
             <br/>
 
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image Url: </label>
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
             <input type="text" name="imageUrl" onChange ={(e) => handleChange(e)} defaultValue={props.student.imageUrl}/>
             <br/>
             <br/>
