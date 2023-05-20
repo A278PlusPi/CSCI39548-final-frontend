@@ -1,4 +1,3 @@
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -8,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles( () => ({
   formContainer:{  
     width: '500px',
-    backgroundColor: '#f0f0f5',
+    backgroundColor: '#cff',
     borderRadius: '5px',
     margin: 'auto',
   },
@@ -18,11 +17,11 @@ const useStyles = makeStyles( () => ({
     textDecoration: 'none'
   }, 
   customizeAppBar:{
-    backgroundColor: '#11153e',
+    backgroundColor: '#00f',
     shadows: ['none'],
   },
   formTitle:{
-    backgroundColor:'#c5c8d6',
+    backgroundColor:'#ccf',
     marginBottom: '15px',
     textAlign: 'center',
     borderRadius: '5px 5px 0px 0px',
@@ -42,7 +41,7 @@ const EditStudentView = (props) => {
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
-            <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
+            <Typography style={{fontWeight: 'bold', fontFamily: 'Roboto Mono, Consolas, Courier, sans-serif', fontSize: '20px', color: '#00f'}}>
               Edit Student
             </Typography>
           </div>
@@ -78,9 +77,9 @@ const EditStudentView = (props) => {
             <br/>
             <br/>
 
-            <Button variant="contained" color="primary" type="submit">
-              Submit
-            </Button>
+            <button type="submit">
+              Update
+            </button>
             <br/>
             <br/>
           </form>

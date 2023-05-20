@@ -22,7 +22,7 @@ class NewStudentContainer extends Component {
       lastname: "", 
       email: "",
       gpa: 0.0,
-      imageUrl: "",
+      imageUrl: "https://cdn-icons-png.flaticon.com/512/5850/5850276.png",
       campusId: null, 
       redirect: false, 
       redirectId: null
