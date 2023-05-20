@@ -56,6 +56,7 @@ const NewCampusView = (props) => {
             name="name" 
             onChange ={(e) => handleChange(e)}
             placeholder='Hunter College'
+            required
              />
             <br/>
             <br/>
@@ -66,6 +67,7 @@ const NewCampusView = (props) => {
              name="address" 
              onChange={(e) => handleChange(e)}
              placeholder='1234 main st'
+             required
               />
             <br/>
             <br/>
