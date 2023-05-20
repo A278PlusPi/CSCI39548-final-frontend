@@ -21,8 +21,8 @@ class NewCampusContainer extends Component {
     this.state = {
       name: "", 
       address: "", 
-      imageUrl: "", 
-      description: "", //add image url
+      imageUrl: "https://cdn-icons-png.flaticon.com/512/4696/4696591.png", //add image url
+      description: "",
       redirect: false, 
       redirectId: null
     };

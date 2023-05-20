@@ -8,7 +8,6 @@ The header contains navigation links to every other page.
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Link } from 'react-router-dom';
@@ -24,10 +23,10 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'sans-serif', 
     fontSize: '35px', 
-    color: 'darkblue'
+    color: '#000'
   },
   appBar:{
-    backgroundColor: '#fcb6bb',
+    backgroundColor: '#9ff',
     shadows: ['none'],
   },
   greeting:{
@@ -39,6 +38,9 @@ const useStyles = makeStyles(theme => ({
   },
   links:{
     textDecoration: 'none',
+  },
+  primary:{
+    backgroundColor: "#000",
   }
 }));
 
@@ -55,21 +57,21 @@ const Header = () => {
           </Typography>
 
           <Link className={classes.links} to={'/'} >
-            <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+            <button style={{marginRight: '10px', fontWeight:"500", fontSize:"18px"}}>
               Home
-            </Button>
+            </button>
           </Link>
 
           <Link className={classes.links} to={'/campuses'} >
-            <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+            <button style={{marginRight: '10px', fontWeight:"500", fontSize:"18px"}}>
               All Campuses
-            </Button>
+            </button>
           </Link>
 
           <Link className={classes.links} to={'/students'} >
-            <Button variant="contained" color="primary">
+            <button style={{fontSize:"18px", fontWeight:"500"}}>
               All Students
-            </Button>
+            </button>
           </Link>
         </Toolbar>
       </AppBar>

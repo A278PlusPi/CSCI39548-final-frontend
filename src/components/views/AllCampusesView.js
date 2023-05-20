@@ -26,17 +26,18 @@ const AllCampusesView = (props) => {
   // If there is at least one campus, render All Campuses view 
   return (
     <div>
-      <h1>All Campuses</h1>
+      <h1 style={{marginBottom:"1px"}}>All Campuses</h1>
+      <span style={{fontSize:"14px"}}>Total: <span style={{color:"#00F"}}>{props.allCampuses.length}</span></span>
 
       {props.allCampuses.map((campus) => (
         <div key={campus.id}>
           <Link to={`/campus/${campus.id}`}>
             <h2>{campus.name}</h2>
           </Link>
-          <h4>campus id: {campus.id}</h4>
-          <p>{campus.address}</p>
-          <p>{campus.description}</p>
-          <button onClick={()=>deleteCampus(campus.id)}>Delete</button>
+          <h4>Campus ID: {campus.id}</h4>
+          <p style={{fontSize:"14px"}}>{campus.address}</p>
+          <p style={{fontSize:"14px"}}>{campus.description}</p>
+          <button className="delete" onClick={()=>deleteCampus(campus.id)}>Delete</button>
           <hr/>
         </div>
       ))}

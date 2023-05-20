@@ -11,7 +11,10 @@ const StudentView = (props) => {
   // Render a single Student view 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+      <div style={{display: 'inline-flex', alignItems: 'center'}}>
+      <img src={student.imageUrl} alt="Student Pic" style={{ width: 'auto', height: '64px', paddingRight: '16px' }}/>
       <h1>{student.firstname + " " + student.lastname}</h1>
+      </div>
 
       {student.campus ? (
         <Link to={`/campus/${student.campus.id}`}>
@@ -28,10 +31,9 @@ const StudentView = (props) => {
       <div style={{ display: 'flex', gap: '10px' }}> 
         <Link to={`/editstudent/${student.id}`}><button>Edit</button></Link>
         <Link to={`/students`}>
-          <button onClick={() => deleteStudent(student.id)}>Delete</button>
+          <button className="delete" onClick={() => deleteStudent(student.id)}>Delete</button>
         </Link>
       </div>
-      <img src={student.imageUrl} alt="Student Pic" style={{ width: '500px', height: 'auto' }}/>
     </div>
   );
 

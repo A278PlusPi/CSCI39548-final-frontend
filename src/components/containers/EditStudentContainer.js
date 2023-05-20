@@ -49,8 +49,7 @@ class EditStudentContainer extends Component {
     this.setState({
         firstname: "", 
         lastname:"",
-        email: "", 
-        gpa: 0.0, 
+        email: "",
         imageUrl: "",
         redirect: true, 
         redirectId: this.props.student.id
