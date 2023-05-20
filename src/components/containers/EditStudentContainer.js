@@ -17,7 +17,7 @@ class EditStudentContainer extends Component {
       campusId: null,
       imageUrl: "",
       redirect: false, 
-      redirectId: null
+      redirectId: null,
     };
   }
 
@@ -38,9 +38,15 @@ class EditStudentContainer extends Component {
         lastname:this.state.lastname,
         email: this.state.email, 
         gpa: this.state.gpa, 
+<<<<<<< HEAD
         campusId: this.props.student.campusId,
         // id: this.props.student.campusId,
         imageUrl: this.props.student.imageUrl
+=======
+        campusId: this.state.campusId,
+        imageUrl: this.state.imageUrl,
+        id: this.props.student.id
+>>>>>>> main
       };
 
     await this.props.editStudent(changeStudent)
@@ -53,13 +59,13 @@ class EditStudentContainer extends Component {
         gpa: 0.0, 
         imageUrl: "",
         redirect: true, 
-        redirectId: this.props.student.campusId
+        redirectId: this.props.student.id
 
     });
   }
 
   componentDidMount(){
-    this.props.fetchStudent(window.location.pathname.slice(-1))
+    this.props.fetchStudent(this.props.student.id)
     this.setState({
         firstname: this.props.student.firstname, 
         lastname:this.props.student.lastname,
