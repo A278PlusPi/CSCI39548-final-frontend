@@ -38,15 +38,9 @@ class EditStudentContainer extends Component {
         lastname:this.state.lastname,
         email: this.state.email, 
         gpa: this.state.gpa, 
-<<<<<<< HEAD
-        campusId: this.props.student.campusId,
-        // id: this.props.student.campusId,
-        imageUrl: this.props.student.imageUrl
-=======
         campusId: this.state.campusId,
         imageUrl: this.state.imageUrl,
         id: this.props.student.id
->>>>>>> main
       };
 
     await this.props.editStudent(changeStudent)
